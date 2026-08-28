@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design System/Shapes" />
+
+# Shapes
+
+Source of truth: Figma variable collection `Shapes`. Available as Tailwind utilities `rounded-default` / `rounded-round`.
+
+export const Swatch = ({ radius, token, value }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 24, padding: '20px 0', borderBottom: '1px solid rgba(19, 20, 16, 0.1)' }}>
+    <div
+      style={{
+        width: 96,
+        height: 96,
+        background: '#FCF47A',
+        border: '1px solid #131410',
+        borderRadius: radius,
+      }}
+    />
+    <div>
+      <code style={{ fontSize: 12 }}>{token}</code>
+      <div style={{ fontSize: 11, opacity: 0.6, marginTop: 4 }}>{value}</div>
+    </div>
+  </div>
+);
+
+<Swatch radius="10px" token="default-radius" value="10px — rounded-default" />
+<Swatch radius="30px" token="round" value="30px — rounded-round" />

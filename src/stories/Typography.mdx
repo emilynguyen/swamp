@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design System/Typography" />
+
+# Typography
+
+Source of truth: Figma text styles. Each style below is a CSS class in `globals.css`, named to match its Figma token 1:1 (e.g. `.denim-xxl-bold`).
+
+export const Row = ({ className, token, spec }) => (
+  <div style={{ display: 'flex', alignItems: 'baseline', gap: 24, padding: '20px 0', borderBottom: '1px solid rgba(19, 20, 16, 0.1)' }}>
+    <div style={{ flex: '0 0 220px' }}>
+      <code style={{ fontSize: 12 }}>{token}</code>
+      <div style={{ fontSize: 11, opacity: 0.6, marginTop: 4 }}>{spec}</div>
+    </div>
+    <div className={`sb-unstyled ${className}`} style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+      swamp design studio
+    </div>
+  </div>
+);
+
+## Denim INK
+
+<Row className="denim-xxl-bold" token="denim-xxl-bold" spec="700 · 200px / 193px · -3%" />
+<Row className="denim-xxl" token="denim-xxl" spec="400 · 200px / 193px · -3%" />
+<Row className="denim-xl" token="denim-xl" spec="700 · 88px / 90px · -3% — footer CTA, smaller screens" />
+<Row className="denim-l" token="denim-l" spec="400 · 78px / 85px · -6%" />
+<Row className="denim-m" token="denim-m" spec="400 · 62px / 70px · -4%" />
+<Row className="denim-s" token="denim-s" spec="400 · 48px · -4%" />
+<Row className="denim-xs" token="denim-xs" spec="400 · 36px · -4%" />
+<Row className="denim-xxs" token="denim-xxs" spec="500 · 18px · -4% — text on stickers" />
+
+## Editorial New
+
+<Row className="editorial-l" token="editorial-l" spec="300 · 56px · -3%" />
+<Row className="editorial-m" token="editorial-m" spec="300 · 36px · -3% — mobile headers" />
+<Row className="editorial-s" token="editorial-s" spec="300 · 18px · -3% — text on stickers" />
+
+## Helvetica Now Display
+
+<Row className="helvetica-xl" token="helvetica-xl" spec="400 · 30px · -3%" />
+<Row className="helvetica-m" token="helvetica-m" spec="500 · 24px · -3%" />
+<Row className="helvetica-s-bold" token="helvetica-s-bold" spec="700 · 16px / 26px · -3%" />
+<Row className="helvetica-s" token="helvetica-s" spec="400 · 16px / 18px · -3%" />
+<Row className="helvetica-s-tall" token="helvetica-s-tall" spec="400 · 16px / 26px · -3%" />
+<Row className="helvetica-xs-bold" token="helvetica-xs-bold" spec="700 · 10px · -3%" />
+
+## Geist Mono
+
+<Row className="geist-l" token="geist-l" spec="400 · 18px · 0%" />
+<Row className="geist-m" token="geist-m" spec="400 · 14px / 20px · -4%" />
+<Row className="geist-s" token="geist-s" spec="400 · 12px / 18px · -4%" />
+<Row className="geist-xs-semi" token="geist-xs-semi" spec="600 · 10px · -4%" />
+<Row className="geist-xs" token="geist-xs" spec="400 · 10px · -4%" />

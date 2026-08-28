@@ -1,0 +1,87 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  @font-face {
+    font-family: "Helvetica Now Display";
+    src: url("/fonts/HelveticaNowDisplay-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Helvetica Now Display";
+    src: url("/fonts/HelveticaNowDisplay-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Helvetica Now Display";
+    src: url("/fonts/HelveticaNowDisplay-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Denim INK";
+    src: url("/fonts/DenimINK-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Denim INK";
+    src: url("/fonts/DenimINK-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Denim INK";
+    src: url("/fonts/DenimINK-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "PP Editorial New";
+    src: url("/fonts/PPEditorialNew-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --font-helvetica-now-display: "Helvetica Now Display";
+    --font-denim-ink: "Denim INK";
+    --font-editorial-new: "PP Editorial New";
+    --font-geist-mono: "Geist Mono";
+  }
+
+  body,
+  .sbdocs,
+  .sbdocs *:where(:not([class*="denim-"]):not([class*="editorial-"]):not([class*="geist-"]):not([class*="helvetica-"])) {
+    font-family: "Helvetica Now Display", Helvetica, Arial, sans-serif !important;
+  }
+
+  .docblock-colorpalette {
+    margin-top: 32px !important;
+  }
+
+  .docblock-colorpalette div:has(> [title^="#"], > [title^="rgba"]) {
+    border-radius: 0 !important;
+    height: 80px !important;
+    box-shadow: none !important;
+  }
+
+  .docblock-colorpalette > div:first-child > div {
+    font-family: "Geist Mono", monospace !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    letter-spacing: -0.04em !important;
+  }
+
+</style>

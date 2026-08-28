@@ -1,10 +1,59 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const helveticaNowDisplay = localFont({
+  variable: "--font-helvetica-now-display",
+  src: [
+    {
+      path: "../fonts/HelveticaNowDisplay-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/HelveticaNowDisplay-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/HelveticaNowDisplay-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+});
+
+const denimInk = localFont({
+  variable: "--font-denim-ink",
+  src: [
+    {
+      path: "../fonts/DenimINK-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/DenimINK-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/DenimINK-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+});
+
+const editorialNew = localFont({
+  variable: "--font-editorial-new",
+  src: [
+    {
+      path: "../fonts/PPEditorialNew-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+  ],
 });
 
 const geistMono = Geist_Mono({
@@ -22,7 +71,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${helveticaNowDisplay.variable} ${denimInk.variable} ${editorialNew.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>

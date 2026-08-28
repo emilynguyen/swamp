@@ -1,1 +1,232 @@
 @import "tailwindcss";
+
+:root {
+  /* Colors — Figma collection: Colors */
+  --color-primary-brand: #fcf47a;
+  --color-primary-dark: #131410;
+  --color-primary-light: #f9f8f2;
+  --color-secondary-purple-300: #b7acd6;
+  --color-secondary-purple-600: #5c3a5c;
+  --color-secondary-brown-300: #7a6248;
+  --color-secondary-brown-600: #281c10;
+  --color-secondary-yellow-light: #fbfaac;
+  --color-secondary-yellow-dark: #fee566;
+  --color-secondary-dark-300: #2e3125;
+  --color-secondary-light-400: #ddd8cf;
+  --color-transparent-dark-alpha-40: rgba(19, 20, 16, 0.4);
+  --color-transparent-dark-alpha-10: rgba(19, 20, 16, 0.1);
+  --color-transparent-light-alpha-40: rgba(249, 248, 242, 0.4);
+  --color-transparent-light-alpha-10: rgba(249, 248, 242, 0.1);
+
+  /* Shapes — Figma collection: Shapes */
+  --radius-default: 10px;
+  --radius-round: 30px;
+}
+
+@theme inline {
+  --color-primary-brand: var(--color-primary-brand);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-secondary-purple-300: var(--color-secondary-purple-300);
+  --color-secondary-purple-600: var(--color-secondary-purple-600);
+  --color-secondary-brown-300: var(--color-secondary-brown-300);
+  --color-secondary-brown-600: var(--color-secondary-brown-600);
+  --color-secondary-yellow-light: var(--color-secondary-yellow-light);
+  --color-secondary-yellow-dark: var(--color-secondary-yellow-dark);
+  --color-secondary-dark-300: var(--color-secondary-dark-300);
+  --color-secondary-light-400: var(--color-secondary-light-400);
+  --color-transparent-dark-alpha-40: var(--color-transparent-dark-alpha-40);
+  --color-transparent-dark-alpha-10: var(--color-transparent-dark-alpha-10);
+  --color-transparent-light-alpha-40: var(--color-transparent-light-alpha-40);
+  --color-transparent-light-alpha-10: var(--color-transparent-light-alpha-10);
+
+  --radius-default: var(--radius-default);
+  --radius-round: var(--radius-round);
+
+  --font-sans: var(--font-helvetica-now-display);
+  --font-mono: var(--font-geist-mono);
+  --font-denim-ink: var(--font-denim-ink);
+  --font-editorial-new: var(--font-editorial-new);
+}
+
+body {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+}
+
+/* Text styles — Figma text styles, applied 1:1 by token name */
+
+.denim-xxl-bold {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 700;
+  font-size: 200px;
+  line-height: 193px;
+  letter-spacing: -0.03em;
+}
+
+.denim-xxl {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 400;
+  font-size: 200px;
+  line-height: 193px;
+  letter-spacing: -0.03em;
+}
+
+.denim-xl {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 700;
+  font-size: 88px;
+  line-height: 90px;
+  letter-spacing: -0.03em;
+}
+
+.denim-l {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 400;
+  font-size: 78px;
+  line-height: 85px;
+  letter-spacing: -0.06em;
+}
+
+.denim-m {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 400;
+  font-size: 62px;
+  line-height: 70px;
+  letter-spacing: -0.04em;
+}
+
+.denim-s {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: normal;
+  letter-spacing: -0.04em;
+}
+
+.denim-xxs {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: -0.04em;
+}
+
+.denim-xs {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: normal;
+  letter-spacing: -0.04em;
+}
+
+.editorial-l {
+  font-family: var(--font-editorial-new), serif;
+  font-weight: 300;
+  font-size: 56px;
+  line-height: normal;
+  letter-spacing: -0.03em;
+}
+
+.editorial-m {
+  font-family: var(--font-editorial-new), serif;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: normal;
+  letter-spacing: -0.03em;
+}
+
+.editorial-s {
+  font-family: var(--font-editorial-new), serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: -0.03em;
+}
+
+.helvetica-xl {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: normal;
+  letter-spacing: -0.03em;
+}
+
+.helvetica-m {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: -0.03em;
+}
+
+.helvetica-s-bold {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: -0.03em;
+}
+
+.helvetica-s {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.03em;
+}
+
+.helvetica-s-tall {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: -0.03em;
+}
+
+.helvetica-xs-bold {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: normal;
+  letter-spacing: -0.03em;
+}
+
+.geist-l {
+  font-family: var(--font-mono), monospace;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 0em;
+}
+
+.geist-m {
+  font-family: var(--font-mono), monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.04em;
+}
+
+.geist-s {
+  font-family: var(--font-mono), monospace;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+}
+
+.geist-xs-semi {
+  font-family: var(--font-mono), monospace;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: normal;
+  letter-spacing: -0.04em;
+}
+
+.geist-xs {
+  font-family: var(--font-mono), monospace;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: normal;
+  letter-spacing: -0.04em;
+}

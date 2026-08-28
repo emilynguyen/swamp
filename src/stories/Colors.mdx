@@ -1,0 +1,52 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design System/Colors" />
+
+# Color palette
+
+Source of truth: Figma variable collection `Colors`.
+
+## Primary
+
+**Yellow** represents growth, optimism, and the light we help bring to businesses navigating a crowded digital landscape. It's warm and approachable rather than corporate, representing our friendly, non-serious brand positioning.
+
+<ColorPalette>
+  <ColorItem title="Brand" subtitle="primary-brand" colors={{ Brand: '#FCF47A' }} />
+</ColorPalette>
+
+## Secondary
+
+**Brown** is grounded and earthy — it represents the roots, the foundational strategy and craft work that sits beneath every project. It balances the yellow's energy with something organic and trustworthy.
+
+**Purple** adds depth and a touch of the unexpected, the layered, saturated undergrowth of the swamp ecosystem. It represents the creative, expressive side of our work and signals digital/innovative thinking without losing warmth.
+
+<ColorPalette>
+  <ColorItem title="Yellow light" subtitle="secondary-yellow-light" colors={{ 'Yellow light': '#FBFAAC' }} />
+  <ColorItem title="Yellow dark" subtitle="secondary-yellow-dark" colors={{ 'Yellow dark': '#FEE566' }} />
+  <ColorItem title="Purple 300" subtitle="secondary-purple-300" colors={{ 'Purple 300': '#B7ACD6' }} />
+  <ColorItem title="Purple 600" subtitle="secondary-purple-600" colors={{ 'Purple 600': '#5C3A5C' }} />
+  <ColorItem title="Brown 300" subtitle="secondary-brown-300" colors={{ 'Brown 300': '#7A6248' }} />
+  <ColorItem title="Brown 600" subtitle="secondary-brown-600" colors={{ 'Brown 600': '#281C10' }} />
+</ColorPalette>
+
+## Neutrals
+
+A soft, misty light neutral used for backgrounds and breathing room. It keeps layouts calm and legible, letting the primary and secondary colors do the talking. Paired with a deep, swamp-water tone rather than true black — softer, warmer, and more organic.
+
+<ColorPalette>
+  <ColorItem title="Light" subtitle="primary-light" colors={{ Light: '#F9F8F2' }} />
+  <ColorItem title="Dark" subtitle="primary-dark" colors={{ Dark: '#131410' }} />
+  <ColorItem title="Dark 300" subtitle="secondary-dark-300" colors={{ 'Dark 300': '#2E3125' }} />
+  <ColorItem title="Light 400" subtitle="secondary-light-400" colors={{ 'Light 400': '#DDD8CF' }} />
+</ColorPalette>
+
+## Transparent
+
+Alpha overlays for scrims, hover states, and dividers on top of dark or light surfaces.
+
+<ColorPalette>
+  <ColorItem title="Dark alpha 40" subtitle="transparent-dark-alpha-40" colors={{ 'Dark alpha 40': 'rgba(19, 20, 16, 0.4)' }} />
+  <ColorItem title="Dark alpha 10" subtitle="transparent-dark-alpha-10" colors={{ 'Dark alpha 10': 'rgba(19, 20, 16, 0.1)' }} />
+  <ColorItem title="Light alpha 40" subtitle="transparent-light-alpha-40" colors={{ 'Light alpha 40': 'rgba(249, 248, 242, 0.4)' }} />
+  <ColorItem title="Light alpha 10" subtitle="transparent-light-alpha-10" colors={{ 'Light alpha 10': 'rgba(249, 248, 242, 0.1)' }} />
+</ColorPalette>
