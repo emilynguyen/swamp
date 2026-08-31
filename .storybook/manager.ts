@@ -5,7 +5,7 @@ addons.setConfig({
   theme: create({
     base: 'light',
     brandTitle: 'swamp',
-    brandUrl: 'https://swampstudio.vercel.app/',
+    brandUrl: '/',
     brandImage: '/logo-icon.svg',
     brandTarget: '_self',
 

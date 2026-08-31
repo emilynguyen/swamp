@@ -21,6 +21,9 @@
   /* Shapes — Figma collection: Shapes */
   --radius-default: 10px;
   --radius-round: 30px;
+
+  /* Layout — fluid page margin: 20px at mobile (320px) to 24px at 2xl (1536px) */
+  --page-margin: clamp(20px, 18.95px + 0.329vw, 24px);
 }
 
 @theme inline {
@@ -43,14 +46,28 @@
   --radius-default: var(--radius-default);
   --radius-round: var(--radius-round);
 
+  --spacing-page-margin: var(--page-margin);
+
   --font-sans: var(--font-helvetica-now-display);
   --font-mono: var(--font-geist-mono);
   --font-denim-ink: var(--font-denim-ink);
   --font-editorial-new: var(--font-editorial-new);
 }
 
+html,
 body {
+  background-color: var(--color-primary-light);
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+}
+
+/* Hero heading — fluidly scales from denim-xs (mobile) up to denim-l (desktop) */
+
+.hero-heading {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 400;
+  font-size: clamp(36px, 18.6px + 4.641vw, 78px);
+  line-height: normal;
+  letter-spacing: clamp(-4.68px, -0.0975px - 0.358vw, -1.44px);
 }
 
 /* Text styles — Figma text styles, applied 1:1 by token name */

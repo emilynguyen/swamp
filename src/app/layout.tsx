@@ -62,9 +62,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Swamp — Design Studio",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  ),
+  title: "swamp — a community studio",
   description:
-    "Swamp is a design studio creating brands, experiences, and growth systems with clarity and personality.",
+    "A community-driven design studio dedicated to empowering businesses through thoughtful, creative solutions.",
+  openGraph: {
+    title: "swamp — A community-driven design studio",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
