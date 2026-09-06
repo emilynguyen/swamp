@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/nextjs-vite'
 import type { ComponentProps } from 'react'
+import { SvgFilters } from '../src/components/SvgFilters'
 import '../src/app/globals.css'
 
 const H1 = (props: ComponentProps<'h1'>) => (
@@ -45,6 +46,14 @@ const Code = (props: ComponentProps<'code'>) => (
 )
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <>
+        <SvgFilters />
+        <Story />
+      </>
+    ),
+  ],
   parameters: {
     controls: {
       matchers: {

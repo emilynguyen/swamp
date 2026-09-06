@@ -7,7 +7,7 @@ const meta = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["outline", "light"],
+      options: ["outline", "light", "dark", "neutral"],
     },
     children: { control: "text" },
   },
@@ -28,12 +28,22 @@ export const Light: Story = {
   args: { variant: "light" },
 };
 
+export const Dark: Story = {
+  args: { variant: "dark" },
+};
+
+export const Neutral: Story = {
+  args: { variant: "neutral" },
+};
+
 export const AllVariants: Story = {
   render: () => (
     <div className="bg-primary-light flex flex-col gap-8 p-6">
-      <div className="flex items-center gap-6">
+      <div className="flex flex-wrap items-center gap-16">
         <Button variant="outline">Button</Button>
         <Button variant="light">Button</Button>
+        <Button variant="dark">Button</Button>
+        <Button variant="neutral">Button</Button>
       </div>
       <p className="geist-xs">Hover a button in the canvas to see its icon appear.</p>
     </div>

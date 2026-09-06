@@ -1,0 +1,54 @@
+export function SvgFilters() {
+  return (
+    <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
+      <defs>
+        <filter
+          id="sketch-stroke"
+          filterUnits="userSpaceOnUse"
+          x={-1000}
+          y={-1000}
+          width={2000}
+          height={2000}
+          colorInterpolationFilters="sRGB"
+        >
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.999"
+            numOctaves={3}
+            seed={8420}
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            scale={2}
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+        <filter
+          id="grain-texture"
+          filterUnits="userSpaceOnUse"
+          x={-1000}
+          y={-1000}
+          width={2000}
+          height={2000}
+          colorInterpolationFilters="sRGB"
+        >
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency={2.5}
+            numOctaves={3}
+            seed={2.53}
+            result="noise"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale={7}
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+    </svg>
+  );
+}

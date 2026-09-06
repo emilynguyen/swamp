@@ -58,6 +58,31 @@ html,
 body {
   background-color: var(--color-primary-light);
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+::selection {
+  background-color: var(--color-secondary-yellow-light);
+  color: var(--color-primary-dark);
+}
+
+::-moz-selection {
+  background-color: var(--color-secondary-yellow-light);
+  color: var(--color-primary-dark);
+}
+
+/* Sticker reveal — same scale/opacity values as the desktop hover reveal, but as a load-in animation for mobile (no hover state on touch) */
+
+@keyframes sticker-in {
+  from {
+    opacity: 0;
+    scale: 0%;
+  }
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
 }
 
 /* Hero heading — fluidly scales from denim-xs (mobile) up to denim-l (desktop) */
@@ -66,7 +91,7 @@ body {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 400;
   font-size: clamp(36px, 18.6px + 4.641vw, 78px);
-  line-height: normal;
+  line-height: 1.09;
   letter-spacing: clamp(-4.68px, -0.0975px - 0.358vw, -1.44px);
 }
 

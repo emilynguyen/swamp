@@ -1,70 +1,136 @@
 import { Header } from "@/components/Header";
 import { Button } from "@/components/Button";
+import { StickerGroup } from "@/components/StickerGroup";
+import { DesktopStickerField } from "@/components/DesktopStickerField";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <section className="relative flex h-[calc(100vh-68px)] max-h-[1024px] w-full items-center justify-center md:min-h-[720px]">
-        <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 p-8">
-          <div className="group pointer-events-auto relative">
-            <img
-              src="/assets/home/hero/brand identity.svg"
-              alt=""
-              className="absolute left-[15%] top-[25%] scale-90 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
-            />
-          </div>
-          <div className="group pointer-events-auto relative">
-            <img
-              src="/assets/home/hero/web dev.svg"
-              alt=""
-              className="absolute left-[10%] top-[-10%] scale-90 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
-            />
-          </div>
-          <div className="group pointer-events-auto relative">
-            <img
-              src="/assets/home/hero/digital design.svg"
-              alt=""
-              className="absolute right-[35%] top-[20%] scale-90 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
-            />
-          </div>
-          <div className="group pointer-events-auto relative">
-            <img
-              src="/assets/home/hero/web design.svg"
-              alt=""
-              className="absolute bottom-0 left-[40%] scale-90 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
-            />
-          </div>
-          <div className="group pointer-events-auto relative">
-            <img
-              src="/assets/home/hero/accepting new projects.svg"
-              alt=""
-              className="absolute right-[10%] bottom-0 scale-90 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
-            />
-          </div>
-          <div className="group pointer-events-auto relative">
-            <img
-              src="/assets/home/hero/creative strategy.svg"
-              alt=""
-              className="absolute right-[10%] bottom-[35%] scale-90 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
-            />
+      <section className="relative w-full">
+        <h1 className="sr-only">
+          A community-driven design studio dedicated to empowering businesses
+          through thoughtful, creative solutions.
+        </h1>
+
+        {/* Desktop layout */}
+        <div className="relative hidden h-[calc(100vh-68px)] max-h-[1024px] w-full items-center justify-center md:flex md:min-h-[720px]">
+          <DesktopStickerField />
+          <div className="relative z-10 container pointer-events-none mx-auto flex flex-col items-center gap-16 px-page-margin text-center">
+            <p aria-hidden="true" className="hero-heading text-balance text-primary-dark">
+              A{" "}
+              <span
+                style={{
+                  fontFamily: "var(--font-editorial-new)",
+                  fontWeight: 300,
+                }}
+              >
+                community
+              </span>
+              -driven design studio dedicated to empowering businesses through
+              thoughtful, creative solutions.
+            </p>
+            <Button variant="outline" className="pointer-events-auto">
+              Start a project
+            </Button>
           </div>
         </div>
-        <div className="relative z-10 container pointer-events-none mx-auto flex flex-col items-center gap-16 px-page-margin text-center">
-          <h1 className="hero-heading text-balance text-primary-dark">
-            A{" "}
-            <span
-              style={{
-                fontFamily: "var(--font-editorial-new)",
-                fontWeight: 300,
-              }}
+
+        {/* Mobile layout */}
+        <div className="relative flex h-[42.5rem] w-full flex-col items-center px-page-margin md:hidden">
+          <div className="relative flex h-[34.9375rem] w-full flex-col items-end justify-between">
+            <p
+              aria-hidden="true"
+              className="hero-heading w-full text-left text-primary-dark"
             >
-              community
-            </span>
-            -driven design studio dedicated to empowering businesses through
-            thoughtful, creative solutions.
-          </h1>
-          <Button variant="outline" className="pointer-events-auto">
+              A{" "}
+              <span
+                style={{
+                  fontFamily: "var(--font-editorial-new)",
+                  fontWeight: 300,
+                }}
+              >
+                community
+              </span>
+              -driven
+              <br />
+              design studio
+            </p>
+
+            <p
+              aria-hidden="true"
+              className="hero-heading text-right text-primary-dark"
+            >
+              empowering
+              <br />
+              businesses through
+              <br />
+              thoughtful design
+            </p>
+
+            <StickerGroup
+              stickers={[
+                {
+                  type: "stamp",
+                  text1: "digital",
+                  text2: "design",
+                  fg: "#B7ACD6",
+                  bg: "#281C10",
+                  rotation: -8,
+                  scale: 96.144 / 86,
+                  className: "absolute",
+                  style: {
+                    left: "calc(50% - 9.5rem - 3vw)",
+                    top: "21.75rem",
+                  },
+                },
+                {
+                  type: "oval",
+                  text1: "brand",
+                  text2: "identity",
+                  fg: "#281C10",
+                  bg: "#7A6248",
+                  rotation: 4,
+                  scale: 189.888 / 184,
+                  className: "absolute",
+                  style: {
+                    left: "calc(50% - 14.8125rem - 3vw)",
+                    top: "9.625rem",
+                  },
+                },
+                {
+                  type: "number",
+                  text1: "web",
+                  text2: "design",
+                  fg: "#131410",
+                  bg: "#FEE566",
+                  rotation: -12,
+                  scale: (116.72 / 86) * 0.8,
+                  className: "absolute",
+                  style: {
+                    right: "calc(50% - 8.9825rem - 3vw)",
+                    top: "14.5rem",
+                  },
+                },
+                {
+                  type: "receipt",
+                  text1: "web",
+                  text2: "development",
+                  fg: "#5C3A5C",
+                  bg: "#B7ACD6",
+                  rotation: 5.5,
+                  scale: 155.312 / 148,
+                  className: "absolute",
+                  style: {
+                    right: "calc(50% - 13.0825rem - 3vw)",
+                    top: "5.0625rem",
+                  },
+                },
+              ]}
+            />
+          </div>
+
+          <Button variant="outline" className="mt-14">
             Start a project
           </Button>
         </div>

@@ -14,6 +14,7 @@ addons.setConfig({
 
     appBg: '#F9F8F2',
     appContentBg: '#F9F8F2',
+    appHoverBg: '#FBFAAC',
     appPreviewBg: '#F9F8F2',
     appBorderColor: '#281C10',
     textColor: '#131410',
