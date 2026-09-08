@@ -35,45 +35,47 @@ export function ProjectCard({
       rel={openInNewTab ? "noopener noreferrer" : undefined}
       className={`group relative flex w-full flex-col items-start gap-2 ${className ?? ""}`}
     >
-      <div
-        className={`relative aspect-3/2 w-full shrink-0 overflow-hidden rounded-default group-hover:overflow-visible ${
-          isCta
-            ? "border border-dashed border-secondary-brown-300 transition-colors duration-300 ease-in-out group-hover:border-transparent"
-            : !imageSrc
-              ? "bg-secondary-light-400"
-              : ""
-        }`}
-      >
-        {isCta ? (
-          <div className="absolute inset-0 rounded-default bg-transparent transition-all duration-300 ease-in-out group-hover:bg-secondary-purple-300 group-hover:blur-[0.469rem]" />
-        ) : (
-          imageSrc && (
-            <img
-              src={imageSrc}
-              alt=""
-              className="absolute inset-0 size-full rounded-default object-cover transition-all duration-300 ease-in-out group-hover:blur-[0.469rem]"
-            />
-          )
-        )}
-        <Grain id={grainId} size={2} radius={2} contrast={isCta ? 1.6 : 4} />
+      <div className="-m-5 w-[calc(100%+2.5rem)] overflow-hidden p-5">
         <div
-          className={`pointer-events-none absolute inset-0 rounded-default opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-90 group-hover:duration-300 ${
-            isCta ? "mix-blend-soft-light" : "mix-blend-overlay"
-          }`}
-          style={{ filter: `url(#${grainId})` }}
-        />
-        <div
-          className={`absolute inset-0 flex items-center justify-center ${
-            isCta ? "" : "opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
+          className={`relative aspect-3/2 w-full shrink-0 overflow-hidden rounded-default group-hover:overflow-visible ${
+            isCta
+              ? "border border-dashed border-secondary-brown-300 transition-colors duration-300 ease-in-out group-hover:border-transparent"
+              : !imageSrc
+                ? "bg-secondary-light-400"
+                : ""
           }`}
         >
-          <Button variant="light">{resolvedCtaLabel}</Button>
+          {isCta ? (
+            <div className="absolute inset-0 rounded-default bg-transparent transition-all duration-300 ease-in-out group-hover:bg-secondary-purple-300 group-hover:blur-[0.469rem]" />
+          ) : (
+            imageSrc && (
+              <img
+                src={imageSrc}
+                alt=""
+                className="absolute inset-0 size-full rounded-default object-cover transition-all duration-300 ease-in-out group-hover:blur-[0.469rem]"
+              />
+            )
+          )}
+          <Grain id={grainId} size={2} radius={2} contrast={isCta ? 1.6 : 2} />
+          <div
+            className={`pointer-events-none absolute inset-0 rounded-default opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-70 group-hover:duration-300 ${
+              isCta ? "mix-blend-soft-light" : "mix-blend-overlay"
+            }`}
+            style={{ filter: `url(#${grainId})` }}
+          />
+          <div
+            className={`absolute inset-0 flex items-center justify-center ${
+              isCta ? "" : "opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
+            }`}
+          >
+            <Button variant="light">{resolvedCtaLabel}</Button>
+          </div>
         </div>
       </div>
 
       {!isCta && (
         <>
-          <div className="flex w-full items-center justify-between whitespace-nowrap text-transparent-dark-alpha-40 transition-colors duration-300 ease-in-out group-hover:text-primary-dark">
+          <div className="mt-5 flex w-full items-center justify-between whitespace-nowrap text-transparent-dark-alpha-40 transition-colors duration-300 ease-in-out group-hover:text-primary-dark">
             <p className="helvetica-s-bold">{title}</p>
             <p className="geist-m">{category}</p>
           </div>
