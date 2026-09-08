@@ -1,9 +1,17 @@
 import { Header } from "@/components/Header";
 import { Button } from "@/components/Button";
+import { PageSection } from "@/components/PageSection";
+import { ProjectCard } from "@/components/ProjectCard";
+import { SectionSpacer } from "@/components/SectionSpacer";
 import { StickerGroup } from "@/components/StickerGroup";
 import { DesktopStickerField } from "@/components/DesktopStickerField";
+import { client } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
+import { PROJECTS_QUERY, type ProjectDocument } from "@/sanity/queries";
 
-export default function Home() {
+export default async function Home() {
+  const projects = await client.fetch<ProjectDocument[]>(PROJECTS_QUERY, {}, { cache: "no-store" });
+
   return (
     <main className="min-h-screen">
       <Header />
@@ -16,8 +24,15 @@ export default function Home() {
         {/* Desktop layout */}
         <div className="relative hidden h-[calc(100vh-68px)] max-h-[1024px] w-full items-center justify-center md:flex md:min-h-[720px]">
           <DesktopStickerField />
-          <div className="relative z-10 container pointer-events-none mx-auto flex flex-col items-center gap-16 px-page-margin text-center">
-            <p aria-hidden="true" className="hero-heading text-balance text-primary-dark">
+          <PageSection
+            as="div"
+            className="relative z-10 pointer-events-none"
+            containerClassName="flex flex-col items-center gap-16 text-center"
+          >
+            <p
+              aria-hidden="true"
+              className="hero-heading text-balance text-primary-dark"
+            >
               A{" "}
               <span
                 style={{
@@ -33,11 +48,15 @@ export default function Home() {
             <Button variant="outline" className="pointer-events-auto">
               Start a project
             </Button>
-          </div>
+          </PageSection>
         </div>
 
         {/* Mobile layout */}
-        <div className="relative flex h-[42.5rem] w-full flex-col items-center px-page-margin md:hidden">
+        <PageSection
+          as="div"
+          className="relative h-[42.5rem] w-full md:hidden"
+          containerClassName="flex h-full w-full flex-col items-center"
+        >
           <div className="relative flex h-[34.9375rem] w-full flex-col items-end justify-between">
             <p
               aria-hidden="true"
@@ -133,8 +152,39 @@ export default function Home() {
           <Button variant="outline" className="mt-14">
             Start a project
           </Button>
-        </div>
+        </PageSection>
       </section>
+
+      <SectionSpacer size="md" />
+
+      <PageSection size="lg">
+        <h2 className="editorial-m text-primary-dark">Recent projects</h2>
+        <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project._id}
+              href={project.url}
+              openInNewTab
+              title={project.title}
+              category={project.category}
+              imageSrc={urlForImage(project.image).width(830).height(553).url()}
+              ctaLabel={project.ctaText}
+            />
+          ))}
+          <ProjectCard type="cta" />
+        </div>
+      </PageSection>
+
+      <SectionSpacer size="2xl" />
+
+      <PageSection size="md">
+        <p className="denim-s text-center text-primary-dark">
+          With 6+ years of experience crafting and elevating brands from
+          strategy to web and product design.
+        </p>
+      </PageSection>
+
+      <SectionSpacer size="2xl" />
     </main>
   );
 }

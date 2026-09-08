@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { PageSection } from "./PageSection";
 
 type HeaderVariant = "default" | "secondary";
 
@@ -37,13 +38,13 @@ export function Header({ variant = "default" }: HeaderProps) {
   }, []);
 
   return (
-    <header className="flex items-center justify-between px-page-margin py-6">
+    <PageSection as="header" className="py-6" containerClassName="flex items-center justify-between">
       <Link href="/" aria-label="Home">
         <Logo type={LOGO_TYPE[variant]} color="dark" size="small" />
       </Link>
       <span className="geist-m" suppressHydrationWarning>
         {time}
       </span>
-    </header>
+    </PageSection>
   );
 }

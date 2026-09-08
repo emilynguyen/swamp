@@ -16,6 +16,13 @@ const meta = {
     category: "Brand + Web",
     imageSrc: "/team/choreathon.png",
   },
+  decorators: [
+    (Story) => (
+      <div className="grid grid-cols-1 gap-5 bg-primary-light p-6 md:grid-cols-2 lg:grid-cols-3">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof ProjectCard>;
 
 export default meta;
@@ -31,9 +38,12 @@ export const Cta: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-6 bg-primary-light p-6">
-      <ProjectCard type="default" imageSrc="/team/choreathon.png" />
+    <>
+      <ProjectCard imageSrc="/team/choreathon.png" />
+      <ProjectCard imageSrc="/team/choreathon.png" />
+      <ProjectCard imageSrc="/team/choreathon.png" />
+      <ProjectCard imageSrc="/team/choreathon.png" />
       <ProjectCard type="cta" />
-    </div>
+    </>
   ),
 };

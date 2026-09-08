@@ -53,14 +53,14 @@ export function Button({
       {/* Content layer */}
       <span className="relative flex items-center">
         <span
-          className={`inline-flex items-center justify-center px-5 py-3.5 transition-all duration-500 ${TEXT_SHAPE_CLASSES[variant]} ${TEXT_COLOR_CLASSES[variant]}`}
+          className={`relative z-10 inline-flex items-center justify-center px-5 py-3.5 transition-all duration-500 ${TEXT_SHAPE_CLASSES[variant]} ${TEXT_COLOR_CLASSES[variant]}`}
         >
           {children}
         </span>
 
         {/* Arrow circle — springs out on hover */}
         <span
-          className={`-ml-[2.875rem] flex size-[2.875rem] shrink-0 scale-0 items-center justify-center overflow-hidden rounded-round transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-ml-[2px] group-hover:scale-100 ${ICON_SHAPE_CLASSES[variant]}`}
+          className={`relative z-0 -ml-[2.875rem] flex size-[2.875rem] shrink-0 scale-0 items-center justify-center overflow-hidden rounded-round transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-ml-[2px] group-hover:scale-100 ${ICON_SHAPE_CLASSES[variant]}`}
         >
           <Icon type="arrow-forward" className="shrink-0" />
         </span>
