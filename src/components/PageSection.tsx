@@ -28,7 +28,9 @@ export function PageSection({
 }: PageSectionProps) {
   return (
     <Tag className={`px-page-margin ${className ?? ""}`} {...props}>
-      <div className={`mx-auto ${SIZE_CLASSES[size]} ${containerClassName ?? ""}`}>
+      <div
+        className={`mx-auto transition-[max-width] duration-300 ease-in-out ${SIZE_CLASSES[size]} ${containerClassName ?? ""}`}
+      >
         {children}
       </div>
     </Tag>
