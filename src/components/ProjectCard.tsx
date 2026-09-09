@@ -45,21 +45,26 @@ export function ProjectCard({
   }, []);
 
   const drawerContentRef = useRef<HTMLDivElement>(null);
-  const isDrawerMounting = useRef(true);
+  const isFirstRender = useRef(true);
   const [drawerMaxHeight, setDrawerMaxHeight] = useState<string>(isOpen ? "none" : "0px");
   const [isDrawerSettled, setIsDrawerSettled] = useState(isOpen);
 
   useLayoutEffect(() => {
     if (!isAccordion) return;
-    const el = drawerContentRef.current;
-    if (!el) return;
 
-    if (isDrawerMounting.current) {
-      isDrawerMounting.current = false;
-      setDrawerMaxHeight(isOpen ? `${el.scrollHeight}px` : "0px");
-      setIsDrawerSettled(isOpen);
+    // Skip the very first run: the initial useState values above are already correct,
+    // and this section's drawers may still be `display: none` on mount (e.g. the mobile
+    // accordion is always in the DOM, even on desktop, just hidden via CSS) — measuring
+    // `scrollHeight` while hidden always returns 0, corrupting the height. Deferring the
+    // first real measurement to the first user-triggered toggle guarantees the element is
+    // actually visible by then.
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
       return;
     }
+
+    const el = drawerContentRef.current;
+    if (!el) return;
 
     setIsDrawerSettled(false);
     setDrawerMaxHeight(`${el.scrollHeight}px`);
@@ -68,6 +73,28 @@ export function ProjectCard({
       const frame = requestAnimationFrame(() => setDrawerMaxHeight("0px"));
       return () => cancelAnimationFrame(frame);
     }
+  }, [isAccordion, isOpen]);
+
+  useEffect(() => {
+    if (!isAccordion) return;
+
+    // The mobile accordion is always mounted, even on desktop (just `display: none` via
+    // `md:hidden`). An <img> that was never actually laid out while hidden can fail to
+    // paint even after a CSS media query makes its ancestor visible again on resize —
+    // browsers don't always retroactively repaint it. Forcing a fresh inline style write
+    // exactly when the viewport crosses into the mobile breakpoint nudges a real repaint.
+    const mql = window.matchMedia("(max-width: 47.9375rem)");
+    const resync = (matches: boolean) => {
+      if (!matches) return;
+      const el = drawerContentRef.current;
+      if (!el) return;
+      setDrawerMaxHeight(isOpen ? `${el.scrollHeight}px` : "0px");
+    };
+    const handleChange = (event: MediaQueryListEvent) => resync(event.matches);
+
+    resync(mql.matches);
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
   }, [isAccordion, isOpen]);
 
   const thumbnail = (
