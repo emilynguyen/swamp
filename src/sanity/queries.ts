@@ -4,6 +4,8 @@ export const PROJECTS_QUERY = defineQuery(
   `*[_type == "project"] | order(_createdAt asc)`,
 );
 
+export const FOOTER_QUERY = defineQuery(`*[_type == "footer"][0]`);
+
 export type ProjectDocument = {
   _id: string;
   title: string;
@@ -13,3 +15,7 @@ export type ProjectDocument = {
   url: string;
   ctaText: string;
 };
+
+export type FooterLink = { label: string; href?: string };
+export type FooterMenuData = { title: string; links: FooterLink[] };
+export type FooterDocument = { menus: FooterMenuData[] };

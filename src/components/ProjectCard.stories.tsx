@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { useState } from "react";
 import { ProjectCard } from "./ProjectCard";
 
 const meta = {
@@ -34,6 +35,35 @@ export const Default: Story = {
 
 export const Cta: Story = {
   args: { type: "cta" },
+};
+
+export const Accordion: Story = {
+  decorators: [
+    (Story) => (
+      <div className="flex max-w-md flex-col gap-5 bg-primary-light p-6">
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => {
+    function AccordionDemo() {
+      const items = ["one", "two", "three"];
+      const [openId, setOpenId] = useState<string | null>(items[0]);
+      return (
+        <>
+          {items.map((id) => (
+            <ProjectCard
+              key={id}
+              imageSrc="/team/choreathon.png"
+              isOpen={openId === id}
+              onToggle={() => setOpenId((current) => (current === id ? null : id))}
+            />
+          ))}
+        </>
+      );
+    }
+    return <AccordionDemo />;
+  },
 };
 
 export const AllVariants: Story = {

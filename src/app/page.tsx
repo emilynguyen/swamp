@@ -1,19 +1,22 @@
-import { Header } from "@/components/Header";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/Button";
 import { PageSection } from "@/components/PageSection";
-import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectSection } from "@/components/ProjectSection";
 import { SectionSpacer } from "@/components/SectionSpacer";
 import { StickerGroup } from "@/components/StickerGroup";
 import { DesktopStickerField } from "@/components/DesktopStickerField";
 import { client } from "@/sanity/client";
-import { urlForImage } from "@/sanity/image";
-import { PROJECTS_QUERY, type ProjectDocument } from "@/sanity/queries";
+import { PROJECTS_QUERY, FOOTER_QUERY, type ProjectDocument, type FooterDocument } from "@/sanity/queries";
 
 export default async function Home() {
-  const projects = await client.fetch<ProjectDocument[]>(PROJECTS_QUERY, {}, { cache: "no-store" });
+  const [projects, footer] = await Promise.all([
+    client.fetch<ProjectDocument[]>(PROJECTS_QUERY, {}, { cache: "no-store" }),
+    client.fetch<FooterDocument | null>(FOOTER_QUERY, {}, { cache: "no-store" }),
+  ]);
 
   return (
-    <main className="min-h-screen">
+    <main id="top" className="min-h-screen scroll-mt-16">
       <Header />
       <section className="relative w-full">
         <h1 className="sr-only">
@@ -155,36 +158,26 @@ export default async function Home() {
         </PageSection>
       </section>
 
-      <SectionSpacer size="md" />
+      <SectionSpacer size="lg" />
 
-      <PageSection size="lg">
-        <h2 className="editorial-m text-primary-dark">Recent projects</h2>
-        <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project._id}
-              href={project.url}
-              openInNewTab
-              title={project.title}
-              category={project.category}
-              imageSrc={urlForImage(project.image).width(830).height(553).url()}
-              ctaLabel={project.ctaText}
-            />
-          ))}
-          <ProjectCard type="cta" />
-        </div>
-      </PageSection>
+      <ProjectSection projects={projects} />
 
       <SectionSpacer size="2xl" />
 
       <PageSection size="md">
-        <p className="denim-s text-center text-primary-dark">
+        <p className="denim-xs text-center text-primary-dark md:denim-s">
           With 6+ years of experience crafting and elevating brands from
           strategy to web and product design.
         </p>
       </PageSection>
 
       <SectionSpacer size="2xl" />
+
+      <div className="md:hidden">
+        <SectionSpacer size="lg" />
+      </div>
+
+      <Footer footerMenus={footer?.menus ?? []} />
     </main>
   );
 }

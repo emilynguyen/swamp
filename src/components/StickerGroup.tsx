@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import { Sticker, type StickerType } from "./Sticker";
 
@@ -16,35 +13,15 @@ type StickerConfig = {
   style: CSSProperties;
 };
 
-const DELAYS = [0.5, 1, 1.5, 2];
-
-function shuffle<T>(array: T[]): T[] {
-  const result = [...array];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
-
 export function StickerGroup({ stickers }: { stickers: StickerConfig[] }) {
-  const [delays, setDelays] = useState(() => DELAYS.slice(0, stickers.length));
-
-  useEffect(() => {
-    setDelays(shuffle(DELAYS.slice(0, stickers.length)));
-  }, [stickers.length]);
-
   return (
     <>
-      {stickers.map((sticker, index) => (
+      {stickers.map((sticker) => (
         <div
           key={`${sticker.type}-${sticker.text1}`}
           aria-hidden="true"
           className={sticker.className}
-          style={{
-            ...sticker.style,
-            animation: `sticker-in 0.5s ease-out ${delays[index]}s both`,
-          }}
+          style={sticker.style}
         >
           <div
             style={{

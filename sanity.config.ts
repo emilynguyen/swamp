@@ -11,7 +11,18 @@ export default defineConfig({
   dataset,
   schema,
   plugins: [
-    structureTool(),
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title("Content")
+          .items([
+            S.listItem()
+              .title("Footer")
+              .child(S.document().schemaType("footer").documentId("footer")),
+            S.divider(),
+            ...S.documentTypeListItems().filter((item) => item.getId() !== "footer"),
+          ]),
+    }),
     presentationTool({
       previewUrl: {
         previewMode: {

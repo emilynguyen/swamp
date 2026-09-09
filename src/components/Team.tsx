@@ -57,13 +57,13 @@ function Field({ label, lines }: { label: string; lines: string[] }) {
   );
 }
 
-export function Team({ person = "Ekin", className }: TeamProps) {
+export function Team({ person = "Ekin", className = "relative" }: TeamProps) {
   const { name, role, likes, photoSrc, colorClass, linkedinHref, websiteHref } =
     PERSON_DATA[person];
 
   return (
     <div
-      className={`relative h-[247px] w-[370px] rounded-default ${colorClass} ${className ?? ""}`}
+      className={`z-0 h-[247px] w-[370px] rounded-default ${colorClass} ${className}`}
     >
       <Logo
         type="tertiary"

@@ -54,11 +54,21 @@
   --font-editorial-new: var(--font-editorial-new);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background-color: var(--color-primary-light);
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 ::selection {
@@ -94,9 +104,25 @@ body {
   letter-spacing: clamp(-4.68px, -0.0975px - 0.358vw, -1.44px);
 }
 
+/* Footer "Let's chat" heading — custom 18vw size below sm, fluid clamp from sm up */
+
+.footer-chat-heading {
+  font-family: var(--font-denim-ink), sans-serif;
+  font-weight: 700;
+  font-size: 18vw;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 40rem) {
+  .footer-chat-heading {
+    font-size: clamp(88px, 58.525px + 9.211vw, 200px);
+  }
+}
+
 /* Text styles — Figma text styles, applied 1:1 by token name */
 
-.denim-xxl-bold {
+@utility denim-xxl-bold {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 700;
   font-size: 200px;
@@ -104,7 +130,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.denim-xxl {
+@utility denim-xxl {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 400;
   font-size: 200px;
@@ -112,7 +138,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.denim-xl {
+@utility denim-xl {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 700;
   font-size: 88px;
@@ -120,7 +146,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.denim-l {
+@utility denim-l {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 400;
   font-size: 78px;
@@ -128,7 +154,7 @@ body {
   letter-spacing: -0.06em;
 }
 
-.denim-m {
+@utility denim-m {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 400;
   font-size: 62px;
@@ -136,7 +162,7 @@ body {
   letter-spacing: -0.04em;
 }
 
-.denim-s {
+@utility denim-s {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 400;
   font-size: 48px;
@@ -144,7 +170,7 @@ body {
   letter-spacing: -0.04em;
 }
 
-.denim-xxs {
+@utility denim-xxs {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -152,7 +178,7 @@ body {
   letter-spacing: -0.04em;
 }
 
-.denim-xs {
+@utility denim-xs {
   font-family: var(--font-denim-ink), sans-serif;
   font-weight: 400;
   font-size: 36px;
@@ -160,7 +186,7 @@ body {
   letter-spacing: -0.04em;
 }
 
-.editorial-l {
+@utility editorial-l {
   font-family: var(--font-editorial-new), serif;
   font-weight: 300;
   font-size: 56px;
@@ -168,7 +194,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.editorial-m {
+@utility editorial-m {
   font-family: var(--font-editorial-new), serif;
   font-weight: 300;
   font-size: 36px;
@@ -176,7 +202,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.editorial-s {
+@utility editorial-s {
   font-family: var(--font-editorial-new), serif;
   font-weight: 300;
   font-size: 18px;
@@ -184,7 +210,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.helvetica-xl {
+@utility helvetica-xl {
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 30px;
@@ -192,7 +218,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.helvetica-m {
+@utility helvetica-m {
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
   font-weight: 500;
   font-size: 24px;
@@ -200,7 +226,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.helvetica-s-bold {
+@utility helvetica-s-bold {
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -208,7 +234,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.helvetica-s {
+@utility helvetica-s {
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -216,7 +242,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.helvetica-s-tall {
+@utility helvetica-s-tall {
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -224,7 +250,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.helvetica-xs-bold {
+@utility helvetica-xs-bold {
   font-family: var(--font-sans), Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 10px;
@@ -232,7 +258,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-.geist-l {
+@utility geist-l {
   font-family: var(--font-mono), monospace;
   font-weight: 400;
   font-size: 18px;
@@ -240,7 +266,7 @@ body {
   letter-spacing: 0em;
 }
 
-.geist-m {
+@utility geist-m {
   font-family: var(--font-mono), monospace;
   font-weight: 400;
   font-size: 14px;
@@ -248,7 +274,7 @@ body {
   letter-spacing: -0.04em;
 }
 
-.geist-s {
+@utility geist-s {
   font-family: var(--font-mono), monospace;
   font-weight: 400;
   font-size: 12px;
@@ -256,7 +282,7 @@ body {
   letter-spacing: -0.04em;
 }
 
-.geist-xs-semi {
+@utility geist-xs-semi {
   font-family: var(--font-mono), monospace;
   font-weight: 600;
   font-size: 10px;
@@ -264,7 +290,7 @@ body {
   letter-spacing: -0.04em;
 }
 
-.geist-xs {
+@utility geist-xs {
   font-family: var(--font-mono), monospace;
   font-weight: 400;
   font-size: 10px;
